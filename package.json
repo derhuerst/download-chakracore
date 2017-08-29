@@ -1,0 +1,35 @@
+{
+	"name": "download-chakracore",
+	"description": "Download a Node-ChakraCore binary.",
+	"version": "0.1.0",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"download",
+		"binary",
+		"prebuilt",
+		"releases",
+		"chakracore",
+		"node"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/download-chakracore",
+	"repository": "derhuerst/download-chakracore",
+	"bugs": "https://github.com/derhuerst/download-chakracore/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"tape": "^4.6.3",
+		"tap-min": "^1.2.1"
+	},
+	"scripts": {
+		"test": "node test.js | tap-min",
+		"prepublishOnly": "npm test"
+	}
+}
