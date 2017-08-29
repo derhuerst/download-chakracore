@@ -4,7 +4,8 @@
 	"version": "0.1.0",
 	"main": "index.js",
 	"files": [
-		"index.js"
+		"index.js",
+		"lib"
 	],
 	"keywords": [
 		"download",
@@ -23,6 +24,9 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"env-paths": "^1.0.0",
+		"mkdirp": "^0.5.1",
+		"node-fetch": "^1.7.2"
 	},
 	"devDependencies": {
 		"tape": "^4.6.3",
