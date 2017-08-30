@@ -13,6 +13,7 @@ if (args === '-v' || args === '--version') {
 	process.exit()
 }
 
+const path = require('path')
 const {fileExists} = require('./lib/helpers')
 const download = require('.')
 
@@ -22,18 +23,20 @@ const showError = (err) => {
 	process.exit(1)
 }
 
+const log = (msg) => console.log(msg)
+
 const dest = process.argv[2]
 if (!dest) showError('You must pass a destination directory.')
 
 fileExists(dest)
 .then((exists) => {
-	if (!exists) return showError('Destination directory does not exist.')
+	if (exists) return showError('Destination file already exists.')
 
 	const version = process.env.DOWNLOAD_CHAKRACORE_VERSION || null
 	const arch = process.env.DOWNLOAD_CHAKRACORE_ARCH || null
 	const platform = process.env.DOWNLOAD_CHAKRACORE_PLATFORM || null
 	const cache = process.env.DOWNLOAD_CHAKRACORE_CACHE || null
 
-	return download(dest, version, arch, platform, cache)
+	return download(dest, version, arch, platform, cache, log)
 })
 .catch(showError)
