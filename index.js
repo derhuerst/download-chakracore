@@ -19,13 +19,16 @@ const download = (dest, version, arch, platform, cache, cb) => {
 	.then(() => findAsset(version, arch, platform, cache))
 	.then((asset) => {
 		const archive = path.join(cache, asset.name)
+		const extracted = path.join(cache, asset.basename)
 
 		return fileExists(archive)
 		.then((exists) => {
 			if (!exists) return downloadToPath(asset.url, archive)
 		})
-		.then(() => extract(archive, dest))
+		.then(() => ensureDir(extracted))
+		.then(() => extract(archive, extracted))
 		.then(() => {
+			// todo: copy extracted -> dest
 			console.error('done!', dest)
 		})
 	})

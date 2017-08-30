@@ -3,9 +3,13 @@
 	"description": "Download a Node-ChakraCore binary.",
 	"version": "0.1.0",
 	"main": "index.js",
+	"bin": {
+		"download-chakracore": "./cli.js"
+	},
 	"files": [
 		"index.js",
-		"lib"
+		"lib",
+		"cli.js"
 	],
 	"keywords": [
 		"download",
@@ -13,7 +17,8 @@
 		"prebuilt",
 		"releases",
 		"chakracore",
-		"node"
+		"node",
+		"cli"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
 	"homepage": "https://github.com/derhuerst/download-chakracore",
