@@ -5,8 +5,9 @@ const path = require('path')
 
 const {ensureDir, fileExists, downloadToPath} = require('./lib/helpers')
 const findAsset = require('./lib/find-asset')
+const extract = require('./lib/extract')
 
-const download = (version, arch, platform, cache, cb) => {
+const download = (dest, version, arch, platform, cache, cb) => {
 	version = version || 'latest'
 	if (version !== 'latest' && version[0] !== 'v') version = 'v' + version
 	arch = arch || process.arch
@@ -17,14 +18,15 @@ const download = (version, arch, platform, cache, cb) => {
 	ensureDir(cache)
 	.then(() => findAsset(version, arch, platform, cache))
 	.then((asset) => {
-		const dest = path.join(cache, asset.name)
+		const archive = path.join(cache, asset.name)
 
-		return fileExists(dest)
+		return fileExists(archive)
 		.then((exists) => {
-			if (!exists) return downloadToPath(asset.url, dest)
+			if (!exists) return downloadToPath(asset.url, archive)
 		})
+		.then(() => extract(archive, dest))
 		.then(() => {
-			console.log('done!', dest)
+			console.error('done!', dest)
 		})
 	})
 	.catch(cb)
