@@ -34,12 +34,10 @@
 		"mkdirp": "^0.5.1",
 		"node-fetch": "^1.7.2"
 	},
-	"devDependencies": {
-		"tape": "^4.6.3",
-		"tap-min": "^1.2.1"
-	},
 	"scripts": {
-		"test": "node test.js | tap-min",
+		"test-download": "env DOWNLOAD_CHAKRACORE_CACHE=test ./cli.js test/node",
+		"test-assert": "test/node test/index.js",
+		"test": "npm run test-download && npm run test-assert",
 		"prepublishOnly": "npm test"
 	}
 }
