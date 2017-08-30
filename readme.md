@@ -34,14 +34,21 @@ download-chakracore <destination>
 ```js
 const download = require('download-chakracore')
 
-download(dest, [version], [arch], [platform], [cache], [log])
+download(dest, {log: console.log})
 ```
 
-- `dest` must be the final path of the `node` executable.
-- `version` is `latest` by default.
-- `arch` is `process.arch` by default.
-- `platform` is `process.platform` by default.
-- `cache` is [`require('env-paths')().cache`](https://github.com/sindresorhus/env-paths#pathscache) by default.
+`dest` must be the final path of the `node` executable. `opt` partially overrides the following defaults:
+
+```js
+{
+	version: 'latest',
+	arch: process.arch,
+	platform: process.platform,
+	cache: require('env-paths')('download-chakracore').cache,
+	githubToken: null,
+	log: () => {} // to log messages
+}
+```
 
 Returns a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) that rejects if an error occurs.
 

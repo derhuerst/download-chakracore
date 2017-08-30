@@ -36,7 +36,8 @@ fileExists(dest)
 	const arch = process.env.DOWNLOAD_CHAKRACORE_ARCH || null
 	const platform = process.env.DOWNLOAD_CHAKRACORE_PLATFORM || null
 	const cache = process.env.DOWNLOAD_CHAKRACORE_CACHE || null
+	const githubToken = process.env.GITHUB_TOKEN || null
 
-	return download(dest, version, arch, platform, cache, log)
+	return download(dest, {version, arch, platform, cache, githubToken, log})
 })
 .catch(showError)
