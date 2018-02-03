@@ -32,7 +32,7 @@
 		"decompress-archive": "^0.3.0",
 		"env-paths": "^1.0.0",
 		"mkdirp": "^0.5.1",
-		"node-fetch": "^1.7.2"
+		"node-fetch": "^2.0.0"
 	},
 	"scripts": {
 		"test-download": "env DOWNLOAD_CHAKRACORE_CACHE=test ./cli.js test/node",
