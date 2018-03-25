@@ -5,5 +5,16 @@ node_js:
   - '8'
   - '7'
   - '6'
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.9
+      - gcc-4.9
+      - libc6-dev
+before_install:
+  - export CC=/usr/bin/gcc-4.9;
+  - export CXX=/usr/bin/g++-4.9;
 script:
   - env NODE_ENV=debug npm test
