@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"decompress-archive": "^0.3.0",
-		"env-paths": "^1.0.0",
+		"env-paths": "^2.0.0",
 		"mkdirp": "^0.5.1",
 		"node-fetch": "^2.0.0"
 	},
