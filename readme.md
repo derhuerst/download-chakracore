@@ -1,5 +1,9 @@
 # download-chakracore
 
+**Deprecated. The [Node-ChakraCore](https://github.com/nodejs/node-chakracore) project has been archived.**
+
+---
+
 **Download a [Node-ChakraCore](https://github.com/nodejs/node-chakracore#installing-prebuilt-node-chakracore-binaries) binary.**
 
 [![npm version](https://img.shields.io/npm/v/download-chakracore.svg)](https://www.npmjs.com/package/download-chakracore)
